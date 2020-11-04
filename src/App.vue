@@ -1,17 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header/>
+    <Home/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import db from '@/firebase/init'
+import Header from '@/components/layout/Header'
+import Home from '@/components/Home'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    Home,
+  },
+  data () {
+    return {
+      warga: []
+    }
+  },
+  created() {
+    db.collection('warga').get()
+    .then((snapshot) => {
+      let wargaFromFirebase = [];
+      snapshot.forEach(doc => {
+        wargaFromFirebase.push(doc.data());
+      });
+
+      console.log(wargaFromFirebase);
+      this.warga = wargaFromFirebase;
+    })
+    .catch((e) => {
+      console.log('error', e);
+    })
   }
 }
 </script>

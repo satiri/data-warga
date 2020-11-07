@@ -1,17 +1,13 @@
 <template>
     <div>
-        Home
-        <Demographi/>
+        Mutasi Warga
     </div>
 </template>
 
 <script>
-import Demographi from '@/components/Demographi'
-
 export default {
-  name: 'Home',
+  name: 'PageMutasi',
   components: {
-    Demographi,
   },
 }
 </script>

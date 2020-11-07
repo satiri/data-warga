@@ -3,20 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve  --host localhost",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.18.1",
     "chart.js": "^2.9.4",
     "core-js": "^3.6.5",
     "firebase": "^8.0.0",
-    "vue": "^2.6.11",
+    "luxon": "^1.25.0",
+    "nodaemon": "^0.0.5",
+    "vue": "^2.6.12",
     "vue-chartjs": "^3.5.1",
+    "vue-datetime": "^1.0.0-beta.14",
     "vue-firebase": "^1.0.8",
-    "vue-router": "^3.4.8"
+    "vue-router": "^3.4.8",
+    "weekstart": "^1.0.1"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.12.1",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",

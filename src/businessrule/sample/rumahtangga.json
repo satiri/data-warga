@@ -1,0 +1,15 @@
+[
+    {
+        "nama_keluarga": "keluarga bpk. budi",
+        "jumlah_anggota": 3,
+        "kepala_rumah_tangga": "id_pak_budi",
+        "suami": "id_pak_budi",
+        "istri": "id_istri_pak_budi",
+        "orang_tua": {
+
+        },
+        "anak": {
+            "1": "id_anak_pak_budi_pertama"
+        }
+    }
+]

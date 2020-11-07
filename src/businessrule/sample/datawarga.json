@@ -1,0 +1,58 @@
+[
+    {
+        "nama": "budi darmawan",
+        "rt": "01",
+        "rw": "05",
+        "nomor_rumah": "10",
+        "jenis_kelamin": "laki-laki",
+        "tgl_lahir": "10-10-1992",
+        "pekerjaan": "karyawan",
+        "tgl_masuk_lingkungan": "01-01-2017",
+        "status_menikah": "menikah",
+        "jumlah_anak": 1,
+        "jumlah_kasus": 0,
+        "posisi_dalam_rumah_tangga": "suami"
+    },
+    {
+        "nama": "yuni darmawan",
+        "rt": "01",
+        "rw": "05",
+        "nomor_rumah": "10",
+        "jenis_kelamin": "perempuan",
+        "tgl_lahir": "21-12-1994",
+        "pekerjaan": "ibu rumah tangga",
+        "tgl_masuk_lingkungan": "01-01-2017",
+        "status_menikah": "menikah",
+        "jumlah_anak": 1,
+        "jumlah_kasus": 0,
+        "posisi_dalam_rumah_tangga": "istri"
+    },
+    {
+        "nama": "lily darmawan",
+        "rt": "01",
+        "rw": "05",
+        "nomor_rumah": "10",
+        "jenis_kelamin": "perempuan",
+        "tgl_lahir": "14-6-2014",
+        "pekerjaan": "-",
+        "tgl_masuk_lingkungan": "01-01-2017",
+        "status_menikah": "belum-menikah",
+        "jumlah_anak": 0,
+        "jumlah_kasus": 0,
+        "posisi_dalam_rumah_tangga": "anak"
+    },
+    {
+        "nama": "susi darmawan",
+        "rt": "01",
+        "rw": "05",
+        "nomor_rumah": "10",
+        "jenis_kelamin": "perempuan",
+        "tgl_lahir": "14-6-1964",
+        "pekerjaan": "-",
+        "tgl_masuk_lingkungan": "01-01-2017",
+        "status_menikah": "belum-menikah",
+        "jumlah_anak": 0,
+        "jumlah_kasus": 0,
+        "posisi_dalam_rumah_tangga": "orang-tua"
+    }
+]

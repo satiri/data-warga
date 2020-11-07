@@ -1,20 +1,21 @@
 <template>
   <div id="app">
-    <Header/>
-    <Home/>
+    <Navbar/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import db from '@/firebase/init'
-import Header from '@/components/layout/Header'
-import Home from '@/components/Home'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import '@/assets/style.css'
+
+import Navbar from '@/components/layout/Navbar'
 
 export default {
   name: 'App',
   components: {
-    Header,
-    Home,
+    Navbar,
   },
   data () {
     return {
@@ -22,30 +23,6 @@ export default {
     }
   },
   created() {
-    db.collection('warga').get()
-    .then((snapshot) => {
-      let wargaFromFirebase = [];
-      snapshot.forEach(doc => {
-        wargaFromFirebase.push(doc.data());
-      });
-
-      console.log(wargaFromFirebase);
-      this.warga = wargaFromFirebase;
-    })
-    .catch((e) => {
-      console.log('error', e);
-    })
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

@@ -25,6 +25,6 @@ export default {
 
 <style scoped>
 .demographi-list {
-    
+    list-style-type: none;
 }
 </style>

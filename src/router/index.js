@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import PageAbout from '@/components/layout/About';
 import PageHome from '@/components/layout/PageHome';
 import PageKartuKeluarga from '@/components/layout/PageKartuKeluarga';
+import PageKartuKeluargaDetail from '@/components/layout/PageKartuKeluargaDetail';
 import PageMutasi from '@/components/layout/PageMutasi';
 import PageKas from '@/components/layout/PageKas';
 
@@ -20,6 +21,11 @@ export default new Router({
             path: '/kartu-keluarga',
             name: 'KartuKeluarga',
             component: PageKartuKeluarga
+        },
+        {
+            path: '/kartu-keluarga/:id_keluarga',
+            name: 'KartuKeluargaDetail',
+            component: PageKartuKeluargaDetail
         },
         {
             path: '/mutasi-warga',

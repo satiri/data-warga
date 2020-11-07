@@ -1,33 +1,18 @@
 <template>
     <div>
         <div class='page-title'><b-button variant="success" pill title="Tambah Kartu Keluarga">+</b-button> {{ title }}</div>
-        <div v-for="k in datakeluarga" v-bind:key="k.id">
-            <div class="row row-kartu-keluarga">
-            <div class="col-1" style='margin-top:10px;'>
-                <b-icon-people-fill font-scale="4" class="rounded-circle bg-secondary p-2"></b-icon-people-fill>
-            </div>
-            <div class="col-6 xs-5">
-            <ul class='kartu-keluarga'>
-                <li>Nama: {{ k.nama }}</li>
-                <li>Jumlah anggota Keluarga : <strong>{{ k.jumlah_anggota }}</strong></li>
-                <li>Alamat: RT: {{ k.rt }}/{{ k.rw }} No. {{ k.no_rumah }} </li>
-            </ul>
-            </div>
-            <div class='col-2 btn-kartu-keluarga xs-3'>
-                <div>
-                    <b-button variant="dark">Edit</b-button> <b-button variant='info'>Tampil</b-button>
-                </div>
-            </div>
-            </div>
+        <div v-for="row in datakeluarga" :key="row.id">
+            <KartuKeluargaItem :rowkeluarga="row"/>
         </div>
     </div> 
 </template>
 
 <script>
 import datakartukeluarga from '@/businessrule/sample/kartukeluarga'
+import KartuKeluargaItem from './KartuKeluargaItem'
+
 import {
     BButton,
-    BIconPeopleFill,
     } from 'bootstrap-vue';
 
 
@@ -38,12 +23,18 @@ export default {
     ],
     components: {
         BButton,
-        BIconPeopleFill,
+        KartuKeluargaItem,
     },
     data () {
         return {
             title: 'Daftar Kartu Keluarga',
             datakeluarga: datakartukeluarga.data,
+        }
+    },
+    methods: {
+        showKartuKeluarga: function (event) {
+            console.log(event);
+            console.log(this.k);
         }
     }
 }

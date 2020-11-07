@@ -1,20 +1,22 @@
 <template>
     <div>
-        <div class='page-title'><b-button variant="success" pill>+</b-button> {{ title }}</div>
+        <div class='page-title'><b-button variant="success" pill title="Tambah Kartu Keluarga">+</b-button> {{ title }}</div>
         <div v-for="k in datakeluarga" v-bind:key="k.id">
             <div class="row row-kartu-keluarga">
-            <div class="col-9">
+            <div class="col-1" style='margin-top:10px;'>
+                <b-icon-people-fill font-scale="4" class="rounded-circle bg-secondary p-2"></b-icon-people-fill>
+            </div>
+            <div class="col-6 xs-5">
             <ul class='kartu-keluarga'>
                 <li>Nama: {{ k.nama }}</li>
                 <li>Jumlah anggota Keluarga : <strong>{{ k.jumlah_anggota }}</strong></li>
                 <li>Alamat: RT: {{ k.rt }}/{{ k.rw }} No. {{ k.no_rumah }} </li>
             </ul>
             </div>
-            <div class='col-3 btn-kartu-keluarga'>
-                <b-row>
-                    <b-col lg="4" class="pb-2"><b-button variant="dark" block>Edit</b-button></b-col>
-                    <b-col lg="4" class="pb-2"><b-button block>Tampil</b-button></b-col>
-                </b-row>
+            <div class='col-2 btn-kartu-keluarga xs-3'>
+                <div>
+                    <b-button variant="dark">Edit</b-button> <b-button variant='info'>Tampil</b-button>
+                </div>
             </div>
             </div>
         </div>
@@ -22,7 +24,11 @@
 </template>
 
 <script>
-import { BButton,BRow,BCol } from 'bootstrap-vue';
+import datakartukeluarga from '@/businessrule/sample/kartukeluarga'
+import {
+    BButton,
+    BIconPeopleFill,
+    } from 'bootstrap-vue';
 
 
 export default {
@@ -32,38 +38,12 @@ export default {
     ],
     components: {
         BButton,
-        BRow,
-        BCol,
+        BIconPeopleFill,
     },
     data () {
         return {
             title: 'Daftar Kartu Keluarga',
-            datakeluarga: [
-                {
-                    id: 1,
-                    nama: 'Keluarga Bpk. Budi',
-                    rt: '01',
-                    rw: '02',
-                    no_rumah: '44',
-                    jumlah_anggota: 4,
-                },
-                {
-                    id: 2,
-                    nama: 'Keluarga Bpk. Susanto',
-                    rt: '01',
-                    rw: '02',
-                    no_rumah: '31',
-                    jumlah_anggota: 5,
-                },
-                {
-                    id: 3,
-                    nama: 'Keluarga Ibu Cynthia',
-                    rt: '01',
-                    rw: '02',
-                    no_rumah: '16',
-                    jumlah_anggota: 3,
-                }
-            ]
+            datakeluarga: datakartukeluarga.data,
         }
     }
 }
@@ -74,7 +54,6 @@ export default {
 .kartu-keluarga {
     list-style: none;
     text-align: left;
-    border: none 1px #FF0000;
     padding-inline-start: 0px;
     padding-bottom: 5px;
 }
@@ -86,6 +65,7 @@ export default {
     vertical-align:middle;
     margin-top: 20px;
     text-align: right;
+    margin-left:auto; margin-right:0;
 }
 
 </style>

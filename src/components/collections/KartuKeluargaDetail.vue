@@ -15,7 +15,7 @@
 
 <script>
 // TODO: replace the datasourcce
-import dataanggotakeluarga from '@/businessrule/sample/anggotakeluarga';
+import dataanggotakeluarga from '@/model/sample/anggotakeluarga';
 
 import { BTable, BButton } from 'bootstrap-vue';
 

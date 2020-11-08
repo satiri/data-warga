@@ -7,7 +7,7 @@
 
 <script>
 import KartuKeluargaDetail from '@/components/collections/KartuKeluargaDetail'
-import datakartukeluarga from '@/businessrule/sample/kartukeluarga'
+import datakartukeluarga from '@/model/sample/kartukeluarga'
 
 export default {
     name: 'PageKartuKeluargaDetail',

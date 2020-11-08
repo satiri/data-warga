@@ -1,17 +1,29 @@
 <template>
     <div class='page'>
-      Kartu Keluarga Detail
+      <div class='page-title'>Kartu Keluarga : {{ title }}</div>
+      <KartuKeluargaDetail :idkartukeluarga="idkartukeluarga" :datakartu="datakartu"/>
     </div>
 </template>
 
 <script>
-// import KartuKeluarga from '@/components/collections/KartuKeluarga'
+import KartuKeluargaDetail from '@/components/collections/KartuKeluargaDetail'
+import datakartukeluarga from '@/businessrule/sample/kartukeluarga'
 
 export default {
-  name: 'PageKartuKeluargaDetail',
-  components: {
-    // KartuKeluarga,
-  },
+    name: 'PageKartuKeluargaDetail',
+    components: {
+        KartuKeluargaDetail,
+    },
+    data() {
+        const idkartu = this.$route.params.id_keluarga;
+        const data =  datakartukeluarga.data[idkartu];
+
+        return {
+            title: `${data.nama}`,
+            idkartukeluarga: this.$route.params.id_keluarga,
+            datakartu: data,
+        }
+    }
 }
 </script>
 

@@ -6,8 +6,8 @@
         <div class="col-6 xs-5">
         <ul class='kartu-keluarga'>
             <li>Nama: {{ rowkeluarga.nama }}</li>
-            <li>Jumlah anggota Keluarga : <strong>{{ rowkeluarga.jumlah_anggota }}</strong></li>
-            <li>Alamat: RT: {{ rowkeluarga.rt }}/{{ rowkeluarga.rw }} No. {{ rowkeluarga.no_rumah }} </li>
+            <li>Jumlah anggota keluarga : <strong>{{ rowkeluarga.jumlah_anggota }}</strong></li>
+            <li>Alamat: RT {{ rowkeluarga.rt }}/{{ rowkeluarga.rw }} No. {{ rowkeluarga.no_rumah }} </li>
         </ul>
         </div>
         <div class='col-2 btn-kartu-keluarga xs-3'>

@@ -6,6 +6,7 @@ import PageHome from '@/components/layout/PageHome';
 import PageKartuKeluarga from '@/components/layout/PageKartuKeluarga';
 import PageKartuKeluargaDetail from '@/components/layout/PageKartuKeluargaDetail';
 import AddKartuKeluarga from '@/components/forms/AddKartuKeluarga';
+import AddWarga from '@/components/forms/AddWarga';
 import PageMutasi from '@/components/layout/PageMutasi';
 import PageKas from '@/components/layout/PageKas';
 
@@ -32,6 +33,11 @@ export default new Router({
             path: '/kartu-keluarga/detil/:id_keluarga',
             name: 'KartuKeluargaDetail',
             component: PageKartuKeluargaDetail
+        },
+        {
+            path: '/data-warga/new',
+            name: 'AddWarga',
+            component: AddWarga,
         },
         {
             path: '/mutasi-warga',

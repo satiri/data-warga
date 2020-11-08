@@ -127,7 +127,7 @@ export default {
           rw: '00',
           no_rumah: '0',
           jumlah_anggota: '1',
-          checked: [],
+        //   checked: [],
         },
         // foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
         show: true
@@ -136,7 +136,13 @@ export default {
     methods: {
       onSubmit(evt) {
         evt.preventDefault()
-        alert(JSON.stringify(this.form))
+        const data = {
+            ...this.form,
+            tgl_ditambahkan: new Date(),
+            tgl_diupdate: new Date(),
+        }
+
+        alert(JSON.stringify(data))
       },
       onReset(evt) {
         evt.preventDefault()

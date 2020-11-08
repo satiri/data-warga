@@ -5,6 +5,7 @@ import PageAbout from '@/components/layout/About';
 import PageHome from '@/components/layout/PageHome';
 import PageKartuKeluarga from '@/components/layout/PageKartuKeluarga';
 import PageKartuKeluargaDetail from '@/components/layout/PageKartuKeluargaDetail';
+import AddKartuKeluarga from '@/components/forms/AddKartuKeluarga';
 import PageMutasi from '@/components/layout/PageMutasi';
 import PageKas from '@/components/layout/PageKas';
 
@@ -23,7 +24,12 @@ export default new Router({
             component: PageKartuKeluarga
         },
         {
-            path: '/kartu-keluarga/:id_keluarga',
+            path: '/kartu-keluarga/new',
+            name: 'AddKartuKeluarga',
+            component: AddKartuKeluarga
+        },
+        {
+            path: '/kartu-keluarga/detil/:id_keluarga',
             name: 'KartuKeluargaDetail',
             component: PageKartuKeluargaDetail
         },

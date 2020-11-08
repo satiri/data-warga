@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class='page-title'><b-button variant="success" pill title="Tambah Kartu Keluarga">+</b-button> {{ title }}</div>
+        <div class='page-title'><b-button variant="success" pill title="Tambah Kartu Keluarga" @click="membuatKartuKeluarga">+</b-button> {{ title }}</div>
         <div v-for="row in datakeluarga" :key="row.id">
             <KartuKeluargaItem :rowkeluarga="row"/>
         </div>
@@ -10,6 +10,7 @@
 <script>
 import datakartukeluarga from '@/businessrule/sample/kartukeluarga'
 import KartuKeluargaItem from './KartuKeluargaItem'
+import router from '@/router'
 
 import {
     BButton,
@@ -32,9 +33,8 @@ export default {
         }
     },
     methods: {
-        showKartuKeluarga: function (event) {
-            console.log(event);
-            console.log(this.k);
+        membuatKartuKeluarga:  function (){
+            router.push({ name: 'AddKartuKeluarga' })
         }
     }
 }

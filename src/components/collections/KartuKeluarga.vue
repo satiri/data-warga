@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import datakartukeluarga from '@/businessrule/sample/kartukeluarga'
+import datakartukeluarga from '@/model/sample/kartukeluarga'
 import KartuKeluargaItem from './KartuKeluargaItem'
 import router from '@/router'
 

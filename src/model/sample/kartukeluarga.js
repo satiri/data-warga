@@ -23,7 +23,7 @@ export default {
         },
         {
             id: 3,
-            nama: 'Keluarga Ibu Cynthia',
+            nama: 'Keluarga Ibu Sonya',
             rt: '01',
             rw: '02',
             no_rumah: '16',
@@ -41,7 +41,7 @@ export default {
         },
         {
             id: 5,
-            nama: 'Keluarga Ibu Cynthia',
+            nama: 'Keluarga Ibu Juli',
             rt: '01',
             rw: '02',
             no_rumah: '16',
@@ -50,7 +50,7 @@ export default {
         },
         {
             id: 6,
-            nama: 'Keluarga Ibu Cynthia',
+            nama: 'Keluarga Ibu Ambar',
             rt: '01',
             rw: '02',
             no_rumah: '16',
@@ -59,7 +59,7 @@ export default {
         },
         {
             id: 7,
-            nama: 'Keluarga Bpk. Budi',
+            nama: 'Keluarga Bpk. Sumarno',
             rt: '01',
             rw: '02',
             no_rumah: '44',
@@ -68,7 +68,7 @@ export default {
         },
         {
             id: 8,
-            nama: 'Keluarga Bpk. Susanto',
+            nama: 'Keluarga Bpk. Mustopo',
             rt: '01',
             rw: '02',
             no_rumah: '31',
@@ -77,7 +77,7 @@ export default {
         },
         {
             id: 9,
-            nama: 'Keluarga Ibu Cynthia',
+            nama: 'Keluarga Ibu Fatma',
             rt: '01',
             rw: '02',
             no_rumah: '16',
@@ -86,7 +86,7 @@ export default {
         },
         {
             id: 10,
-            nama: 'Keluarga Ibu Cynthia',
+            nama: 'Keluarga Ibu Misye',
             rt: '01',
             rw: '02',
             no_rumah: '16',
@@ -95,7 +95,7 @@ export default {
         },
         {
             id: 11,
-            nama: 'Keluarga Ibu Cynthia',
+            nama: 'Keluarga Ibu Rohmah',
             rt: '01',
             rw: '02',
             no_rumah: '16',
@@ -104,7 +104,7 @@ export default {
         },
         {
             id: 12,
-            nama: 'Keluarga Ibu Cynthia',
+            nama: 'Keluarga Ibu Mustika',
             rt: '01',
             rw: '02',
             no_rumah: '16',

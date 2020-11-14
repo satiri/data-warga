@@ -11,7 +11,6 @@
             <li>Tgl Lahir: {{ rowWarga.tgl_lahir.toLocaleDateString('en-ID', dateFormat) }}</li>
             <li>Alamat: RT: {{ rowWarga.rt }}/{{ rowWarga.rw }} No. {{ rowWarga.no_rumah }} </li>
         </ul>
-
         </div>
         <div class='col-2 btn-kartu-keluarga xs-3'>
             <div>
@@ -44,7 +43,7 @@ export default {
     methods: {
         showWarga: function () {
             const id = this.rowWarga.id;
-            router.push({ name: 'DataWargaDetail', params: { id_warga: id } })
+            router.push({ name: 'DataWargaDetil', params: { id_warga: id } })
         },
     }
 }

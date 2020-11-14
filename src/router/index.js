@@ -5,11 +5,15 @@ import PageAbout from '@/components/layout/About';
 import PageHome from '@/components/layout/PageHome';
 import PageKartuKeluarga from '@/components/layout/PageKartuKeluarga';
 import PageKartuKeluargaDetail from '@/components/layout/PageKartuKeluargaDetail';
-import AddKartuKeluarga from '@/components/forms/AddKartuKeluarga';
-import AddWarga from '@/components/forms/AddWarga';
+
 import PageMutasi from '@/components/layout/PageMutasi';
 import PageKas from '@/components/layout/PageKas';
+
+import AddKartuKeluarga from '@/components/forms/AddKartuKeluarga';
+import AddWarga from '@/components/forms/AddWarga';
+
 import ListWarga from '@/components/collections/ListWarga';
+import DataWargaDetil from '@/components/collections/DataWargaDetil';
 
 Vue.use(Router);
 
@@ -40,11 +44,11 @@ export default new Router({
             name: 'DataWarga',
             component: ListWarga,
         },
-        // {
-        //     path: '/data-warga/detil/:id_warga',
-        //     name: 'DataWargaDetil',
-        //     component: DataWargaDetil,
-        // },
+        {
+            path: '/data-warga/detil/:id_warga',
+            name: 'DataWargaDetil',
+            component: DataWargaDetil,
+        },
         {
             path: '/data-warga/new',
             name: 'AddWarga',

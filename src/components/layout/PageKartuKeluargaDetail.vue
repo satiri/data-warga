@@ -16,12 +16,16 @@ export default {
     },
     data() {
         const idkartu = this.$route.params.id_keluarga;
-        const data =  datakartukeluarga.data[idkartu];
+        const data =  datakartukeluarga.data.filter((kk) => {
+            if(kk.id.toString() === idkartu.toString()) {
+                return kk;
+            }
+        });
 
         return {
-            title: `${data.nama}`,
+            title: `${data[0].nama}`,
             idkartukeluarga: this.$route.params.id_keluarga,
-            datakartu: data,
+            datakartu: data[0],
         }
     }
 }

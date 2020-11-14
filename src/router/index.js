@@ -9,6 +9,7 @@ import AddKartuKeluarga from '@/components/forms/AddKartuKeluarga';
 import AddWarga from '@/components/forms/AddWarga';
 import PageMutasi from '@/components/layout/PageMutasi';
 import PageKas from '@/components/layout/PageKas';
+import ListWarga from '@/components/collections/ListWarga';
 
 Vue.use(Router);
 
@@ -34,6 +35,16 @@ export default new Router({
             name: 'KartuKeluargaDetail',
             component: PageKartuKeluargaDetail
         },
+        {
+            path: '/data-warga/',
+            name: 'DataWarga',
+            component: ListWarga,
+        },
+        // {
+        //     path: '/data-warga/detil/:id_warga',
+        //     name: 'DataWargaDetil',
+        //     component: DataWargaDetil,
+        // },
         {
             path: '/data-warga/new',
             name: 'AddWarga',

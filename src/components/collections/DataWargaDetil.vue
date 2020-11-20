@@ -20,7 +20,7 @@
 <script>
 import sampleListWarga from '@/model/sample/listwarga';
 import dateFormat from '@/model/referrence';
-
+import Warga from '@/model/Warga';
 
 export default {
     name: 'DataWargaDetil',
@@ -28,11 +28,14 @@ export default {
     },
     data () {
         const idWarga = this.$route.params.id_warga;
+        Warga.getWargaById(idWarga).then((data) => {
+            this.dataWarga = data;
+        });
+
         return {
             dateFormat,
             idWarga,
-            dataWarga: this.getDataWarga(idWarga),
-            listWarga: sampleListWarga.data,
+            dataWarga: Warga.getEmptyRow(),
         }
     },
     methods: {

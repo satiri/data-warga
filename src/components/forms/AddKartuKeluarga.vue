@@ -3,7 +3,8 @@
         <div class='page-title' style='text-align:left'>Kartu Keluarga</div>
         <div style='text-align:left'>
             <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-                <b-form-group label-cols-lg="2" id="input-group-1" label="Nomor Kartu Keluarga" label-for="input-1" description="Nomor Kartu Keluarga">
+                <b-form-group label-cols-lg="2" id="input-group-1" label="Nomor Kartu Keluarga" label-for="input-1" 
+                    description="Nomor Kartu Keluarga">
                     <b-form-input
                     id="input-1"
                     v-model="form.nomor_kk"
@@ -74,7 +75,7 @@
                 </b-form-group> -->
 
                 <b-form-group label-cols-lg="2" id="input-group-5" label="" label-for="input-5">
-                    <b-button type="submit" variant="dark">Submit</b-button> <b-button type="reset" variant="info">Reset</b-button>
+                    <b-button type="submit" variant="dark">Simpan</b-button> <b-button type="reset" variant="info">Reset</b-button>
                 </b-form-group>
                 </b-form>
                 <!-- <b-card class="mt-3" header="Form Data Result">
@@ -162,5 +163,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

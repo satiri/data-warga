@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <div class='page-title'><b-button variant="success" pill>+</b-button> {{ title }}</div>
+        <div class='page-title'><b-button variant="success" pill @click="inputWarga">+</b-button> {{ title }}</div>
         <div v-for="row in listWarga" :key="row.id">
             <ListWargaItem :rowWarga="row"/>
         </div>
@@ -11,6 +11,7 @@
 import ListWargaItem from './ListWargaItem';
 import sampleListWarga from '@/model/sample/listwarga';
 import dateFormat from '@/model/referrence';
+import router from '@/router';
 
 import {
     BButton,
@@ -30,6 +31,9 @@ export default {
         }
     },
     methods: {
+        inputWarga: function () {
+            router.push({ name: 'AddWarga' })
+        }
     }
 }
 </script>

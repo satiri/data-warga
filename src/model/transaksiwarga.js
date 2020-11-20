@@ -75,7 +75,7 @@ function buatNomorSurat(prefix) {
 
 }
 
-module export = {
+export default {
     checkWargaExists,
     checkKartuKeluargaByRtRWNomorRumah,
     checkKartuKeluargaByNama,

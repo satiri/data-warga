@@ -98,7 +98,7 @@
                 </b-form-group> -->
 
                 <b-form-group label-cols-lg="2" id="input-group-5" label="" label-for="input-5">
-                    <b-button type="submit" variant="dark">Submit</b-button> <b-button type="reset" variant="info">Reset</b-button>
+                    <b-button type="submit" variant="dark">Simpan</b-button> <b-button type="reset" variant="info">Reset</b-button>
                 </b-form-group>
                 </b-form>
                 <!-- <b-card class="mt-3" header="Form Data Result">

@@ -13,6 +13,8 @@ import sampleListWarga from '@/model/sample/listwarga';
 import dateFormat from '@/model/referrence';
 import router from '@/router';
 
+import Warga from '@/model/Warga';
+
 import {
     BButton,
     } from 'bootstrap-vue';
@@ -24,6 +26,11 @@ export default {
         ListWargaItem,
     },
     data () {
+        // get the data
+        Warga.getListWarga().then((res) => {
+            this.listWarga = res;
+        });
+
         return {
             dateFormat,
             title: 'Daftar Warga',

@@ -1,8 +1,9 @@
-import firebase from 'firebase'
+/**
+ * doc: https://firebase.google.com/docs/firestore/manage-data/add-data
+**/
 
-// update this from local firebaseConfig.js
-const firebaseConfig = {
-}
+import firebase from 'firebase'
+import firebaseConfig from './firebaseConfig'
 
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 firebaseApp.firestore().settings({ timestampInSnapshots: true })

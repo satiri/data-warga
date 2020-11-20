@@ -18,6 +18,11 @@ const routeWarga = [
         name: 'AddWarga',
         component: AddWarga,
     },
+    {
+        path: '/data-warga/edit/:id_warga',
+        name: 'EditWarga',
+        component: AddWarga,
+    },
 ];
 
 export default routeWarga;

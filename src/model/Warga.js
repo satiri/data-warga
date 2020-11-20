@@ -85,10 +85,16 @@ function timestampToDate(time) {
     return new Date(time.seconds * 1000)
 }
 
-async function insert(row) {
-    const res = await db(cName).add(row);
+function insert(row) {
+    try {
+        return db.collection(cName).add(row).then((res) => {
+            return res.id;
+        });
+    } catch (e) {
+        console.log(JSON.stringify(e));
+    }
 
-    return res.id;
+    return null;
 }
 
 /**
@@ -96,8 +102,15 @@ async function insert(row) {
  * @param {*} id
  * @param {*} row
  */
-function update(cName, id, row) {
-    db.collection(cName).doc(id).update(row);
+function update(id, row) {
+    try {
+        db.collection(cName).doc(id).update(row)
+            .then((data) => {
+                console.log(data);
+            });
+    } catch(e) {
+        console.log(e);
+    }
 }
 
 export default {

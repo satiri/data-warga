@@ -14,7 +14,8 @@
         </div>
         <div class='col-2 btn-kartu-keluarga xs-3'>
             <div>
-                <b-button variant="dark">Edit</b-button> <b-button variant='info' @click="showWarga">Tampil</b-button>
+                <b-button variant="dark" @click="editWarga">Edit</b-button> 
+                <b-button variant='info' @click="showWarga">Tampil</b-button>
             </div>
         </div>
     </div>
@@ -44,6 +45,10 @@ export default {
         showWarga: function () {
             const id = this.rowWarga.id;
             router.push({ name: 'DataWargaDetil', params: { id_warga: id } })
+        },
+        editWarga: function () {
+            const id = this.rowWarga.id;
+            router.push({ name: 'EditWarga', params: { id_warga: id } })
         },
     }
 }

@@ -1,12 +1,12 @@
 <template>
     <div class="page">
-        <div class='page-title' style='text-align:left'>Tambah Warga Baru</div>
+        <div class='page-title' style='text-align:left'>{{ title }}</div>
         <div style='text-align:left'>
             <b-form @submit="onSubmit" @reset="onReset" v-if="show">
                 <b-form-group label-cols-lg="2" id="input-group-1" label="Nomor KTP" label-for="input-1" description="Nomor KTP">
                     <b-form-input
                     id="input-1"
-                    v-model="form.nomor_ktp"
+                    v-model="form.no_ktp"
                     placeholder="Nomor KTP (Bila Memiliki)"
                     ></b-form-input>
                 </b-form-group>
@@ -31,8 +31,8 @@
 
                 <b-form-group label-cols-lg="2" id="input-group-4" label="Jenis Kelamin" >
                     <b-form-radio-group v-model="form.jenis_kelamin" id="checkboxes-4">
-                    <b-form-radio value="Laki-Laki">Laki-Laki</b-form-radio>
-                    <b-form-radio value="Perempuan">Perempuan</b-form-radio>
+                    <b-form-radio value="laki-laki">Laki-Laki</b-form-radio>
+                    <b-form-radio value="perempuan">Perempuan</b-form-radio>
                     </b-form-radio-group>
                 </b-form-group>
 
@@ -123,6 +123,7 @@ import {
     // BFormSelect,
 } from 'bootstrap-vue';
 
+import Warga from '@/model/Warga';
 
         // {
         //     id: 1,
@@ -135,6 +136,7 @@ import {
 
 export default {
     name: 'AddWarga',
+    // props: [ 'idWarga' ],
     components: {
         BForm,
         BFormGroup,
@@ -149,33 +151,66 @@ export default {
         BFormDatepicker,
     },
     data() {
-      return {
-        form: {
-          nomor_ktp: '',
-          nama: '',
-          tgl_lahir: '',
-          rt: '00',
-          rw: '00',
-          no_rumah: '0',
-          jumlah_anggota: '1',
-          jenis_kelamin: '',
-          pekerjaan: '',
-        //   checked: [],
-        },
-        // foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
-        show: true
+        const idWarga = this.$route.params.id_warga;
+        this.title = 'Tambah Warga Baru';
+        
+        if (typeof idWarga !== 'undefined' && idWarga !== null) {
+            console.log('why passed ???');
+
+
+            Warga.getWargaById(idWarga).then((data) => {
+                this.form = data;
+                this.title = 'Update Warga';
+            });
+        }
+
+        return {
+            idWarga: this.getIdWarga(),
+            title: 'Tambah Warga Baru',
+            form: Warga.getEmptyRow(),
+            // form: {
+            //     nomor_ktp: '',
+            //     nama: '',
+            //     tgl_lahir: '',
+            //     rt: '00',
+            //     rw: '00',
+            //     no_rumah: '0',
+            //     jumlah_anggota: '1',
+            //     jenis_kelamin: '',
+            //     pekerjaan: '',
+            //     //   checked: [],
+            // },
+            // foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
+            show: true
       }
     },
     methods: {
+      getIdWarga() {
+          const idWarga = this.$route.params.id_warga;
+          if (typeof idWarga !== 'undefined') {
+              return idWarga;
+          }
+
+          return null;
+      },
       onSubmit(evt) {
         evt.preventDefault()
-        const data = {
-            ...this.form,
-            tgl_ditambahkan: new Date(),
-            tgl_diupdate: new Date(),
-        }
+        if (this.idWarga === null) {
+            const data = {
+                ...this.form,
+                tgl_ditambahkan: new Date(),
+                tgl_diupdate: new Date(),
+            }
 
-        alert(JSON.stringify(data))
+            Warga.insert(data);
+        } else {
+            const data = {
+                ...this.form,
+                tgl_diupdate: new Date(),
+            };
+
+            Warga.update(this.idWarga, data);
+        }
       },
       onReset(evt) {
         evt.preventDefault()

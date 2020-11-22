@@ -20,6 +20,15 @@
                     ></b-form-input>
                 </b-form-group>
 
+                <b-form-group label-cols-lg="2" id="input-group-agama" label="Agama" label-for="input-agama" description="Agama">
+                    <b-form-select
+                    id="input-agama"
+                    v-model="form.agama"
+                    :options="agama"
+                    required
+                    ></b-form-select>
+                </b-form-group>
+
                 <b-form-group label-cols-lg="2" id="input-group-3" label="Tgl Lahir" label-for="input-3" description="Tgl Lahir">
                     <b-form-datepicker
                     id="input-3"
@@ -120,10 +129,11 @@ import {
     BFormDatepicker,
     // BFormCheckbox,
     // BFormCheckboxGroup,
-    // BFormSelect,
+    BFormSelect,
 } from 'bootstrap-vue';
 
 import Warga from '@/model/Warga';
+import referrence from '@/model/referrence';
 
         // {
         //     id: 1,
@@ -145,7 +155,7 @@ export default {
         BFormInput,
         // BFormCheckbox,
         // BFormCheckboxGroup,
-        // BFormSelect,
+        BFormSelect,
         BFormRadio,
         BFormRadioGroup,
         BFormDatepicker,
@@ -153,11 +163,8 @@ export default {
     data() {
         const idWarga = this.$route.params.id_warga;
         this.title = 'Tambah Warga Baru';
-        
+
         if (typeof idWarga !== 'undefined' && idWarga !== null) {
-            console.log('why passed ???');
-
-
             Warga.getWargaById(idWarga).then((data) => {
                 this.form = data;
                 this.title = 'Update Warga';
@@ -165,11 +172,15 @@ export default {
         }
 
         return {
+            agama: [
+                { text: 'Pilih Agama', value: null },
+                ...Object.keys(referrence.AGAMA),
+            ],
             idWarga: this.getIdWarga(),
             title: 'Tambah Warga Baru',
             form: Warga.getEmptyRow(),
             // form: {
-            //     nomor_ktp: '',
+            //     nomor_ktp: '',.
             //     nama: '',
             //     tgl_lahir: '',
             //     rt: '00',
@@ -196,19 +207,31 @@ export default {
       onSubmit(evt) {
         evt.preventDefault()
         if (this.idWarga === null) {
+            const tglLahir = new Date(Date.parse(this.form.tgl_lahir));
+
             const data = {
                 ...this.form,
                 tgl_ditambahkan: new Date(),
                 tgl_diupdate: new Date(),
+                tgl_lahir: tglLahir,
             }
 
-            Warga.insert(data);
+            const id = Warga.insert(data);
+            if (id !== null) {
+                alert('success');
+                this.form = Warga.getEmptyRow();
+            }
         } else {
+            // TODO: tgl mungkin salah. validasi dan tahan
+            const tglLahir = new Date(Date.parse(this.form.tgl_lahir));
+
             const data = {
                 ...this.form,
                 tgl_diupdate: new Date(),
+                tgl_lahir: tglLahir,
             };
 
+            // TODO: add success cue
             Warga.update(this.idWarga, data);
         }
       },

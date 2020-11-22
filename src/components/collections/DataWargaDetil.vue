@@ -5,6 +5,7 @@
         <ul class='kartu-keluarga'>
             <li>KTP: {{ dataWarga.no_ktp }}</li>
             <li>Nama: {{ dataWarga.nama }}</li>
+            <li>Agama: {{ dataWarga.agama }}</li>
             <li>Pekerjaan: {{ dataWarga.pekerjaan }}</li>
             <li>Tgl Lahir: {{ dataWarga.tgl_lahir.toLocaleDateString('en-ID', dateFormat) }}</li>
             <li>Alamat: RT: {{ dataWarga.rt }}/{{ dataWarga.rw }} No. {{ dataWarga.no_rumah }} </li>

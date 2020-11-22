@@ -104,7 +104,7 @@ function insert(row) {
  */
 function update(id, row) {
     try {
-        db.collection(cName).doc(id).update(row)
+        return db.collection(cName).doc(id).update(row)
             .then((data) => {
                 console.log(data);
             });

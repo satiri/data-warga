@@ -1,8 +1,8 @@
 import db from '@/config/init'
+import referrence from './referrence'
 
 // collection name
 const cName = 'warga';
-
 
 /**
  * empty warga
@@ -11,6 +11,7 @@ function getEmptyRow() {
     return {
         no_ktp: '',
         nama: '',
+        agama: '',
         pekerjaan: '',
         tgl_lahir: new Date(),
         rt: '',
@@ -46,9 +47,14 @@ function getWargaById(idWarga) {
 
 /**
  * TODO: implement pagination
+ * https://firebase.google.com/docs/firestore/query-data/query-cursors
  */
-function getListWarga() {
-    return db.collection(cName).get()
+function getListWarga(startAt) {
+    return db.collection(cName)
+        .orderBy('tgl_ditambahkan')
+        .startAt(startAt)
+        .limit(referrence.rowPerPage)
+        .get()
         .then((res) => {
             if (res.empty) {
                 return [];

@@ -56,6 +56,9 @@ const dateFormat = {
     day: 'numeric' 
 }
 
+// untuk data per halaman
+const rowPerPage = 5;
+
 export default {
     STATUS_RUMAH_TINGGAL,
     STATUS_DALAM_RUMAH_TANGGA,
@@ -66,4 +69,5 @@ export default {
     PENDIDIKAN,
 
     dateFormat,
+    rowPerPage,
 }

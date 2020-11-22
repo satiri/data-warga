@@ -9,8 +9,7 @@
 
 <script>
 import ListWargaItem from './ListWargaItem';
-import sampleListWarga from '@/model/sample/listwarga';
-import dateFormat from '@/model/referrence';
+import referrence from '@/model/referrence';
 import router from '@/router';
 
 import Warga from '@/model/Warga';
@@ -26,15 +25,36 @@ export default {
         ListWargaItem,
     },
     data () {
+        const page = this.$route.params.page;
+
         // get the data
-        Warga.getListWarga().then((res) => {
-            this.listWarga = res;
-        });
+        let startAt = 1;
+        if (parseInt(page) > 1) {
+            startAt = (referrence.rowPerPage * (page - 1));
+
+            Warga.getListWarga(startAt).then((res) => {
+                this.listWarga = res;
+            });
+
+            console.log('disini');
+        } else {
+            console.log('disini nih');
+            Warga.getListWarga(startAt).then((res) => {
+                this.listWarga = res;
+            });
+        }
+
+        const emptyWarga = Warga.getEmptyRow();
 
         return {
-            dateFormat,
+            dateFormat: referrence.dateFormat,
             title: 'Daftar Warga',
-            listWarga: sampleListWarga.data,
+            listWarga: [
+                emptyWarga,
+                emptyWarga,
+                emptyWarga,
+                emptyWarga,
+            ]
         }
     },
     methods: {

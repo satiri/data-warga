@@ -9,6 +9,11 @@ const routeWarga = [
         component: ListWarga,
     },
     {
+        path: '/data-warga/halaman/:page',
+        name: 'NextPageDataWarga',
+        component: ListWarga,
+    },
+    {
         path: '/data-warga/detil/:id_warga',
         name: 'DataWargaDetil',
         component: DataWargaDetil,

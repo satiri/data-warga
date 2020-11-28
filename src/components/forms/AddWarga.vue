@@ -2,6 +2,7 @@
     <div class="page">
         <div class='page-title' style='text-align:left'>{{ title }}</div>
         <div style='text-align:left'>
+            <b-alert variant="success" show dismissible v-if="updateSuccess" @click="onInfoClicked">Data Terupdate</b-alert>
             <b-form @submit="onSubmit" @reset="onReset" v-if="show">
                 <b-form-group label-cols-lg="2" id="input-group-1" label="Nomor KTP" label-for="input-1" description="Nomor KTP">
                     <b-form-input
@@ -52,6 +53,15 @@
                     required
                     placeholder="Pekerjaan"
                     ></b-form-input>
+                </b-form-group>
+
+                <b-form-group label-cols-lg="2" id="input-group-pendidikan" label="pendidikan" label-for="input-pendidikan">
+                    <b-form-select
+                    id="input-pendidikan"
+                    v-model="form.pendidikan"
+                    :options="pendidikan"
+                    required
+                    ></b-form-select>
                 </b-form-group>
 
                 <b-form-group label-cols-lg="2" id="input-group-4" label="RT" label-for="input-4">
@@ -130,6 +140,7 @@ import {
     // BFormCheckbox,
     // BFormCheckboxGroup,
     BFormSelect,
+    BAlert,
 } from 'bootstrap-vue';
 
 import Warga from '@/model/Warga';
@@ -159,6 +170,7 @@ export default {
         BFormRadio,
         BFormRadioGroup,
         BFormDatepicker,
+        BAlert,
     },
     data() {
         const idWarga = this.$route.params.id_warga;
@@ -172,9 +184,14 @@ export default {
         }
 
         return {
+            updateSuccess:false,
             agama: [
                 { text: 'Pilih Agama', value: null },
                 ...Object.keys(referrence.AGAMA),
+            ],
+            pendidikan: [
+                { text: 'Pilih Pendidikan', value: null },
+                ...Object.keys(referrence.PENDIDIKAN),
             ],
             idWarga: this.getIdWarga(),
             title: 'Tambah Warga Baru',
@@ -232,7 +249,10 @@ export default {
             };
 
             // TODO: add success cue
-            Warga.update(this.idWarga, data);
+            Warga.update(this.idWarga, data).then((r) => {
+                this.$data.updateSuccess = r;
+                
+            })
         }
       },
       onReset(evt) {
@@ -243,10 +263,15 @@ export default {
         this.form.food = null
         this.form.checked = []
         // Trick to reset/clear native browser form validation state
-        this.show = false
+        this.show = false;
+        this.$data.updateSuccess = false;
         this.$nextTick(() => {
           this.show = true
         })
+      },
+      onInfoClicked(evt) {
+        evt.preventDefault();
+        this.$data.updateSuccess = false;
       }
     }
 }

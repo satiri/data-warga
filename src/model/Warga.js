@@ -111,12 +111,18 @@ function insert(row) {
 function update(id, row) {
     try {
         return db.collection(cName).doc(id).update(row)
-            .then((data) => {
-                console.log(data);
+            .then(() => {
+                return true;
+            }).catch((e) => {
+                //  failed
+                console.error(e);
+                return false;
             });
     } catch(e) {
-        console.log(e);
+        console.error(e);
     }
+
+    return false;
 }
 
 export default {

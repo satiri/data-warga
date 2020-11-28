@@ -15,7 +15,7 @@
         </div>
         <div class='col-2 btn-kartu-keluarga xs-3'>
             <div>
-                <b-button variant="dark" @click="editWarga">Edit</b-button> 
+                <b-button variant="dark" @click="editWarga">Edit</b-button>&nbsp;
                 <b-button variant='info' @click="showWarga">Tampil</b-button>
             </div>
         </div>

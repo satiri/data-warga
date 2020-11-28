@@ -7,7 +7,7 @@
         <ul class='kartu-keluarga'>
             <li>Nomor KK: {{ rowkeluarga.nomor_kk }}</li>
             <li>Nama: {{ rowkeluarga.nama }}</li>
-            <li>Jumlah anggota keluarga : <strong>{{ rowkeluarga.anggota_keluarga }}</strong></li>
+            <li>Jumlah anggota keluarga : <strong>{{ rowkeluarga.jumlah_anggota }}</strong></li>
             <li>Alamat: RT {{ rowkeluarga.rt }}/{{ rowkeluarga.rw }} No. {{ rowkeluarga.no_rumah }} </li>
         </ul>
         </div>

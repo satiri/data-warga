@@ -86,6 +86,8 @@
 </template>
 
 <script>
+import KartuKeluarga from '@/model/KartuKeluarga'
+
 import {
     BForm,
     BFormGroup,
@@ -143,7 +145,12 @@ export default {
             tgl_diupdate: new Date(),
         }
 
+        const id = KartuKeluarga.insert(data);
         alert(JSON.stringify(data))
+        if (id !== null) {
+            alert('success');
+            this.form = KartuKeluarga.getEmptyRow();
+        }
       },
       onReset(evt) {
         evt.preventDefault()

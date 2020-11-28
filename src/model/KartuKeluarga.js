@@ -9,7 +9,7 @@ const cName = 'kartu-keluarga';
  */
 function getEmptyRow() {
     return {
-        anggota_keluarga: '',
+        jumlah_anggota: '',
         nama: '',
         no_rumah: '',
         nomor_kk: '',

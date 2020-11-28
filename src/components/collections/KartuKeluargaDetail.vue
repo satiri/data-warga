@@ -2,7 +2,7 @@
     <div>
         <div class=''>
             <ul class='kartu-keluarga'>
-                <li>Jumlah anggota keluarga : <strong>{{ datakartu.jumlah_anggota }}</strong></li>
+                <li>Jumlah anggota keluarga : <strong>{{ datakartu.anggota_keluarga }}</strong></li>
                 <li>Alamat: RT {{ datakartu.rt }}/{{ datakartu.rw }} No. {{ datakartu.no_rumah }} </li>
             </ul>
         </div>
@@ -16,7 +16,6 @@
 <script>
 // TODO: replace the datasourcce
 import dataanggotakeluarga from '@/model/sample/anggotakeluarga';
-
 import { BTable, BButton } from 'bootstrap-vue';
 
 export default {

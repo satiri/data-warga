@@ -8,9 +8,11 @@
 </template>
 
 <script>
-import datakartukeluarga from '@/model/sample/kartukeluarga'
+// import datakartukeluarga from '@/model/sample/kartukeluarga'
+import referrence from '@/model/referrence';
 import KartuKeluargaItem from './KartuKeluargaItem'
 import router from '@/router'
+import KartuKeluarga from '@/model/KartuKeluarga'
 
 import {
     BButton,
@@ -27,9 +29,31 @@ export default {
         KartuKeluargaItem,
     },
     data () {
+        const page = this.$route.params.page;
+
+        // get the data
+        let startAt = 1;
+        if (parseInt(page) > 1) {
+            startAt = (referrence.rowPerPage * (page - 1));
+
+            KartuKeluarga.getListKartuKeluarga(startAt).then((res) => {
+                this.datakeluarga = res;
+            });
+        } else {
+            KartuKeluarga.getListKartuKeluarga(startAt).then((res) => {
+                this.datakeluarga = res;
+            });
+        }
+        const emptyKartuKeluarga = KartuKeluarga.getEmptyRow();
+
         return {
             title: 'Daftar Kartu Keluarga',
-            datakeluarga: datakartukeluarga.data,
+            datakeluarga: [
+                emptyKartuKeluarga,
+                emptyKartuKeluarga,
+                emptyKartuKeluarga,
+                emptyKartuKeluarga,
+            ],
         }
     },
     methods: {

@@ -7,7 +7,7 @@
 
 <script>
 import KartuKeluargaDetail from '@/components/collections/KartuKeluargaDetail'
-import datakartukeluarga from '@/model/sample/kartukeluarga'
+import KartuKeluarga from '@/model/KartuKeluarga'
 
 export default {
     name: 'PageKartuKeluargaDetail',
@@ -16,16 +16,15 @@ export default {
     },
     data() {
         const idkartu = this.$route.params.id_keluarga;
-        const data =  datakartukeluarga.data.filter((kk) => {
-            if(kk.id.toString() === idkartu.toString()) {
-                return kk;
-            }
+        KartuKeluarga.getKartuKeluargaById(idkartu).then((data) => {
+            this.datakartu = data;
+            this.title = data.nama;
         });
 
         return {
-            title: `${data[0].nama}`,
-            idkartukeluarga: this.$route.params.id_keluarga,
-            datakartu: data[0],
+            title: '',
+            idkartukeluarga: idkartu,
+            datakartu: KartuKeluarga.getEmptyRow(),
         }
     }
 }

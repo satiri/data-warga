@@ -7,8 +7,9 @@
         <ul class='kartu-keluarga'>
             <li>KTP: {{ rowWarga.no_ktp }}</li>
             <li>Nama: {{ rowWarga.nama }}</li>
-            <li>Nama: {{ rowWarga.agama }}</li>
+            <li>Agama: {{ rowWarga.agama }}</li>
             <li>Pekerjaan: {{ rowWarga.pekerjaan }}</li> 
+            <li>Pendidikan: {{ rowWarga.pendidikan }}</li>
             <li>Tgl Lahir: {{ rowWarga.tgl_lahir.toLocaleDateString('en-ID', dateFormat) }}</li>
             <li>Alamat: RT: {{ rowWarga.rt }}/{{ rowWarga.rw }} No. {{ rowWarga.no_rumah }} </li>
         </ul>

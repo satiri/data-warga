@@ -35,10 +35,7 @@ export default {
             Warga.getListWarga(startAt).then((res) => {
                 this.listWarga = res;
             });
-
-            console.log('disini');
         } else {
-            console.log('disini nih');
             Warga.getListWarga(startAt).then((res) => {
                 this.listWarga = res;
             });

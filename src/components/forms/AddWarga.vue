@@ -55,7 +55,7 @@
                     ></b-form-input>
                 </b-form-group>
 
-                <b-form-group label-cols-lg="2" id="input-group-pendidikan" label="pendidikan" label-for="input-pendidikan">
+                <b-form-group label-cols-lg="2" id="input-group-pendidikan" label="Pendidikan" label-for="input-pendidikan">
                     <b-form-select
                     id="input-pendidikan"
                     v-model="form.pendidikan"

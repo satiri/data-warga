@@ -5,7 +5,10 @@
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-            <b-nav-item href="#"><router-link to="/kartu-keluarga" class="home-link">Kartu Keluarga</router-link></b-nav-item>
+            <b-nav-item href="#"><router-link to="/kartu-keluarga" class="home-link">
+                <!-- TODO: icon -->
+                Kartu Keluarga</router-link>
+            </b-nav-item>
             <b-nav-item href="#"><router-link to="/data-warga" class="home-link">Data Warga</router-link></b-nav-item>
             <b-nav-item href="#"><router-link to="/mutasi-warga" class="home-link">Mutasi</router-link></b-nav-item>
             <b-nav-item href="#"><router-link to="/kas" class="home-link">Kas</router-link></b-nav-item>

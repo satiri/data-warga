@@ -31,11 +31,11 @@ function findKartuKeluarga(nama) {
 }
 
 /**
- * idWarga adalah id dari tabel
- * @param {*} idWarga
+ * idKartu adalah id dari tabel
+ * @param {*} idKartu
  */
-function getKartuKeluargaById(idWarga) {
-    return db.collection(cName).doc(idWarga).get()
+function getKartuKeluargaById(idKartu) {
+    return db.collection(cName).doc(idKartu).get()
         .then((doc) => {
             if (typeof doc.data() !== 'undefined') {
                 return firebaseDocToArray(doc);
@@ -125,6 +125,28 @@ function update(id, row) {
     return false;
 }
 
+/**
+ * Menambahkan anggota keluarga kedalam kk
+ *
+ * @param {*} id
+ * @param {*} warga
+ */
+function addAnggota(id, warga) {
+    const urlWarga = db.doc(`warga/${warga.id}`);
+
+    const anggota = [];
+    anggota.push(urlWarga);
+
+    const kk = getKartuKeluargaById(id);
+    const updatedKk = {
+        ...kk,
+        anggota,
+    }
+
+    console.log('updating kk ' + id);
+    update(id, updatedKk);
+}
+
 export default {
     update,
     insert,
@@ -132,4 +154,5 @@ export default {
     getListKartuKeluarga,
     getKartuKeluargaById,
     getEmptyRow,
+    addAnggota,
 }

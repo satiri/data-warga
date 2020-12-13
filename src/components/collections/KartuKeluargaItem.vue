@@ -13,7 +13,8 @@
         </div>
         <div class='col-2 btn-kartu-keluarga xs-3'>
             <div>
-                <b-button variant="dark">Edit</b-button> <b-button variant='info' @click="showKartuKeluarga">Tampil</b-button>
+                <b-button variant="dark" @click="editKartuKeluarga">Edit</b-button>
+                <b-button variant='info' @click="showKartuKeluarga">Tampil</b-button>
             </div>
         </div>
     </div>
@@ -39,6 +40,10 @@ export default {
         }
     },
     methods: {
+        editKartuKeluarga: function () {
+            const id = this.rowkeluarga.id;
+            router.push({ name: 'EditKartuKeluarga', params: { id_keluarga: id } })
+        },
         showKartuKeluarga: function () {
             const id = this.rowkeluarga.id;
             router.push({ name: 'KartuKeluargaDetail', params: { id_keluarga: id } })

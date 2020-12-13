@@ -1,75 +1,30 @@
 import db from '@/config/init'
-import referrence from './referrence'
 
-// import { getById } from './BaseFunctions'
-
-// collection name
-const cName = 'warga';
-
-/**
- * empty warga
- */
-function getEmptyRow() {
-    return {
-        no_ktp: '',
-        nama: '',
-        agama: '',
-        pekerjaan: '',
-        tgl_lahir: new Date(),
-        rt: '',
-        rw: '',
-        no_rumah: '',
-    }
-}
 
 /**
  * mencari warga dengan nama
  */
-async function findWarga(nama) {
-    const doc = await db.collection(cName)
-        .where('nama', '==', nama )
-        .limit(1)
-        .get();
-
+async function findByName(cName, nama) {
+    const doc = await db.collection(cName).where('nama', '==', nama + ".").get();
     if (!doc.empty) {
-        return firebaseToArray(doc)[0];
+        return firebaseToArray(doc);
     }
 
-    return [];
+    return {}
 }
 
 /**
- * idWarga adalah id dari tabel
- * @param {*} idWarga
+ * idRow adalah id dari tabel
+ * @param {*} idRow
  */
-function getWargaById(idWarga) {
-    // return getById(cName, idWarga, getEmptyRow);
-    return db.collection(cName).doc(idWarga).get()
+function getById(cName, idRow, getEmptyRow) {
+    return db.collection(cName).doc(idRow).get()
         .then((doc) => {
             if (typeof doc.data() !== 'undefined') {
                 return firebaseDocToArray(doc);
             }
 
             return getEmptyRow();
-        });
-}
-
-/**
- * TODO: implement pagination
- * https://firebase.google.com/docs/firestore/query-data/query-cursors
- */
-function getListWarga(startAt) {
-    return db.collection(cName)
-        .orderBy('tgl_ditambahkan')
-        .startAt(startAt)
-        .limit(referrence.rowPerPage)
-        .get()
-        .then((res) => {
-            if (res.empty) {
-                return [];
-            }
-
-            return firebaseToArray(res);
         });
 }
 
@@ -100,7 +55,7 @@ function timestampToDate(time) {
     return new Date(time.seconds * 1000)
 }
 
-function insert(row) {
+function insert(cName, row) {
     try {
         return db.collection(cName).add(row).then((res) => {
             return res.id;
@@ -117,7 +72,7 @@ function insert(row) {
  * @param {*} id
  * @param {*} row
  */
-function update(id, row) {
+function update(cName, id, row) {
     try {
         return db.collection(cName).doc(id).update(row)
             .then(() => {
@@ -135,10 +90,8 @@ function update(id, row) {
 }
 
 export default {
-    update,
     insert,
-    findWarga,
-    getListWarga,
-    getWargaById,
-    getEmptyRow,
+    update,
+    findByName,
+    getById,
 }

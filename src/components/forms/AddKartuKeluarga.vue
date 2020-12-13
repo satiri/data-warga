@@ -122,19 +122,29 @@ export default {
         // BFormSelect,
     },
     data() {
-      return {
-        form: {
-          nomor_kk: '',
-          nama: '',
-          rt: '00',
-          rw: '00',
-          no_rumah: '0',
-          jumlah_anggota: '1',
-        //   checked: [],
-        },
-        // foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
-        show: true
-      }
+        const idKeluarga = this.$route.params.id_keluarga;
+        this.title = 'Tambah Warga Baru';
+
+        if (typeof idKeluarga !== 'undefined' && idKeluarga !== null) {
+            KartuKeluarga.getKartuKeluargaById(idKeluarga).then((data) => {
+                this.form = data;
+                this.title = 'Update Warga';
+            });
+        }
+
+        return {
+            form: {
+            nomor_kk: '',
+            nama: '',
+            rt: '00',
+            rw: '00',
+            no_rumah: '0',
+            jumlah_anggota: '1',
+            //   checked: [],
+            },
+            // foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
+            show: true
+        }
     },
     methods: {
       onSubmit(evt) {

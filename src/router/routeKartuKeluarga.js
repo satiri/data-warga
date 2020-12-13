@@ -18,7 +18,11 @@ const routeKartuKeluarga = [
         name: 'KartuKeluargaDetail',
         component: PageKartuKeluargaDetail
     },
-
+    {
+        path: '/kartu-keluarga/edit/:id_keluarga',
+        name: 'EditKartuKeluarga',
+        component: AddKartuKeluarga,
+    },
 ];
 
 export default routeKartuKeluarga;
